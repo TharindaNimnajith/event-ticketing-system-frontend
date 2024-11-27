@@ -32,8 +32,8 @@ const Customers = () => {
           </thead>
           <tbody>
           {
-            customers.map((customer, index) => (
-                <tr key={index}>
+            customers.map(customer => (
+                <tr key={customer.id}>
                   <td className='border px-4 py-2'>{customer.id}</td>
                 </tr>
             ))

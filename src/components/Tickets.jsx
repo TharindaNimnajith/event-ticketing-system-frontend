@@ -14,8 +14,8 @@ const Tickets = () => {
           </thead>
           <tbody>
           {
-            tickets.map((ticket, index) => (
-                <tr key={index}>
+            tickets.map(ticket => (
+                <tr key={ticket.id}>
                   <td className='border px-4 py-2'>{ticket.id}</td>
                 </tr>
             ))

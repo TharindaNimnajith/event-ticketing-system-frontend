@@ -32,8 +32,8 @@ const Vendors = () => {
           </thead>
           <tbody>
           {
-            vendors.map((vendor, index) => (
-                <tr key={index}>
+            vendors.map(vendor => (
+                <tr key={vendor.id}>
                   <td className='border px-4 py-2'>{vendor.id}</td>
                 </tr>
             ))
