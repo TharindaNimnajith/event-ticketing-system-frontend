@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import Sidebar from './component/Sidebar'
-import Customers from './page/Customers.jsx'
-import Vendors from './page/Vendors.jsx'
-import Tickets from './page/Tickets.jsx'
-import Simulation from './page/Simulation.jsx'
+import Customers from './page/Customers'
+import Vendors from './page/Vendors'
+import Tickets from './page/Tickets'
+import Simulation from './page/Simulation'
 import {TAB_CUSTOMERS, TAB_SIMULATION, TAB_TICKETS, TAB_VENDORS} from './config/config.js'
 
 const App = () => {

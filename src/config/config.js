@@ -1,4 +1,4 @@
-export const BASE_URL = 'localhost:8080/api/v1/'
+export const BASE_URL_LOCALHOST_V1 = 'http://localhost:8080/api/v1/'
 
 export const TAB_SIMULATION = 'Simulation'
 export const TAB_VENDORS = 'Vendors'
