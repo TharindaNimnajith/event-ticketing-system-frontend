@@ -21,7 +21,9 @@ const Vendors = () => {
             Add
           </button>
         </form>
-        {error && <p className='text-red-500'>{error}</p>}
+        {
+            error && <p className='text-red-500'>{error}</p>
+        }
         <table className='table-auto w-full'>
           <thead>
             <tr>
@@ -29,11 +31,13 @@ const Vendors = () => {
             </tr>
           </thead>
           <tbody>
-          {vendors.map((vendor, index) => (
-              <tr key={index}>
-                <td className='border px-4 py-2'>{vendor.id}</td>
-              </tr>
-          ))}
+          {
+            vendors.map((vendor, index) => (
+                <tr key={index}>
+                  <td className='border px-4 py-2'>{vendor.id}</td>
+                </tr>
+            ))
+          }
           </tbody>
         </table>
       </div>

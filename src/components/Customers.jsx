@@ -21,7 +21,9 @@ const Customers = () => {
             Add
           </button>
         </form>
-        {error && <p className='text-red-500'>{error}</p>}
+        {
+            error && <p className='text-red-500'>{error}</p>
+        }
         <table className='table-auto w-full'>
           <thead>
             <tr>
@@ -29,11 +31,13 @@ const Customers = () => {
             </tr>
           </thead>
           <tbody>
-          {customers.map((customer, index) => (
-              <tr key={index}>
-                <td className='border px-4 py-2'>{customer.id}</td>
-              </tr>
-          ))}
+          {
+            customers.map((customer, index) => (
+                <tr key={index}>
+                  <td className='border px-4 py-2'>{customer.id}</td>
+                </tr>
+            ))
+          }
           </tbody>
         </table>
       </div>

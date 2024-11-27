@@ -13,11 +13,13 @@ const Tickets = () => {
             </tr>
           </thead>
           <tbody>
-          {tickets.map((ticket, index) => (
-              <tr key={index}>
-                <td className='border px-4 py-2'>{ticket.id}</td>
-              </tr>
-          ))}
+          {
+            tickets.map((ticket, index) => (
+                <tr key={index}>
+                  <td className='border px-4 py-2'>{ticket.id}</td>
+                </tr>
+            ))
+          }
           </tbody>
         </table>
       </div>
