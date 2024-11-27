@@ -1,22 +1,23 @@
 import {useState} from 'react'
 import Sidebar from './components/Sidebar'
-import Customers from './components/Customers'
-import Vendors from './components/Vendors'
-import Tickets from './components/Tickets'
-import Simulation from './components/Simulation'
+import Customers from './tabs/Customers.jsx'
+import Vendors from './tabs/Vendors.jsx'
+import Tickets from './tabs/Tickets.jsx'
+import Simulation from './tabs/Simulation.jsx'
+import {TAB_CUSTOMERS, TAB_SIMULATION, TAB_TICKETS, TAB_VENDORS} from './config/config.js'
 
 const App = () => {
-  const [currentTab, setCurrentTab] = useState('Simulation')
+  const [currentTab, setCurrentTab] = useState(TAB_SIMULATION)
 
   const renderContent = () => {
     switch (currentTab) {
-      case 'Simulation':
+      case TAB_SIMULATION:
         return <Simulation/>
-      case 'Vendors':
+      case TAB_VENDORS:
         return <Vendors/>
-      case 'Customers':
+      case TAB_CUSTOMERS:
         return <Customers/>
-      case 'Tickets':
+      case TAB_TICKETS:
         return <Tickets/>
       default:
         return null
