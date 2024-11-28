@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Header from '../component/Header'
 import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
@@ -35,10 +36,10 @@ const Customers = () => {
 
   return (
       <div>
-        <h2 className="text-xl font-bold mb-4">Customers</h2>
+        <Header header="Customers"/>
         <form onSubmit={addCustomer} className="mb-4">
           <input type="text" name="customerId" placeholder="Customer Id" className="border p-2 mr-2"/>
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+          <button type="submit" className="rounded bg-blue-500 text-white px-4 py-2">
             Add
           </button>
         </form>

@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import ErrorAlert from '../component/ErrorAlert'
+import Header from '../component/Header'
 import Loading from '../component/Loading'
 
 const Simulation = () => {
@@ -17,7 +18,7 @@ const Simulation = () => {
 
   return (
       <div>
-        <h2 className="text-xl font-bold mb-4">Simulation</h2>
+        <Header header="Simulation"/>
         {
           loading ? (
               <Loading/>
@@ -26,10 +27,10 @@ const Simulation = () => {
           ) : null
         }
         <div className="flex gap-4 mb-4">
-          <button onClick={startSimulation} className="px-4 py-2 rounded bg-green-500 text-white">
+          <button onClick={startSimulation} className="rounded bg-green-500 text-white px-4 py-2">
             Start
           </button>
-          <button onClick={stopSimulation} className="px-4 py-2 rounded bg-red-500 text-white">
+          <button onClick={stopSimulation} className="rounded bg-red-500 text-white px-4 py-2">
             Stop
           </button>
         </div>

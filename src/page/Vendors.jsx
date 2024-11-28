@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Header from '../component/Header'
 import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
@@ -36,11 +37,11 @@ const Vendors = () => {
 
   return (
       <div>
-        <h2 className="text-xl font-bold mb-4">Vendors</h2>
+        <Header header="Vendor"/>
         <form onSubmit={addVendor} className="mb-4">
           <input type="text" name="vendorId" placeholder="Vendor Id" className="border p-2 mr-2"/>
           <input type="text" name="ticketsPerRelease" placeholder="Tickets per Release" className="border p-2 mr-2"/>
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+          <button type="submit" className="rounded bg-blue-500 text-white px-4 py-2">
             Add
           </button>
         </form>

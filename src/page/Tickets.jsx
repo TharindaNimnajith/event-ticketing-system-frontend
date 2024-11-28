@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useEffect, useState} from 'react'
 import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Header from '../component/Header'
 import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
@@ -26,7 +27,7 @@ const Tickets = () => {
 
   return (
       <div>
-        <h2 className="text-xl font-bold mb-4">Tickets</h2>
+        <Header header="Tickets"/>
         {
           loading ? (
               <Loading/>
