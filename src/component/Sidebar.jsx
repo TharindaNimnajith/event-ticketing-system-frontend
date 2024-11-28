@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import {TABS} from './../config/config'
+import {TABS} from '../config/config'
 
 const Sidebar = ({setTab}) => {
   return (

@@ -14,8 +14,7 @@ const Vendors = () => {
   const [errorAdd, setErrorAdd] = useState(null)
 
   useEffect(() => {
-    axios
-    .get(`${BASE_URL_LOCALHOST_V1}vendors`)
+    axios.get(`${BASE_URL_LOCALHOST_V1}vendors`)
     .then(response => {
       setData(response.data)
     })
@@ -30,8 +29,7 @@ const Vendors = () => {
   const addVendor = event => {
     event.preventDefault()
     setErrorAdd(null)
-    axios
-    .post(`${BASE_URL_LOCALHOST_V1}vendors`, {
+    axios.post(`${BASE_URL_LOCALHOST_V1}vendors`, {
       id: event.target.vendorId.value,
       tickets_per_release: event.target.ticketsPerRelease.value
     })

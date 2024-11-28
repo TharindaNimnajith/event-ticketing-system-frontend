@@ -14,8 +14,7 @@ const Customers = () => {
   const [errorAdd, setErrorAdd] = useState(null)
 
   useEffect(() => {
-    axios
-    .get(`${BASE_URL_LOCALHOST_V1}customers`)
+    axios.get(`${BASE_URL_LOCALHOST_V1}customers`)
     .then(response => {
       setData(response.data)
     })
@@ -30,8 +29,7 @@ const Customers = () => {
   const addCustomer = event => {
     event.preventDefault()
     setErrorAdd(null)
-    axios
-    .post(`${BASE_URL_LOCALHOST_V1}customers`, {
+    axios.post(`${BASE_URL_LOCALHOST_V1}customers`, {
       id: event.target.customerId.value
     })
     .then(response => {

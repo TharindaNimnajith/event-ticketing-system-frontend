@@ -11,8 +11,7 @@ const Configurations = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios
-    .get(`${BASE_URL_LOCALHOST_V1}configs`)
+    axios.get(`${BASE_URL_LOCALHOST_V1}configs`)
     .then(response => {
       setData(response.data)
     })

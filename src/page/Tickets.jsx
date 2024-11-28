@@ -12,8 +12,7 @@ const Tickets = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios
-    .get(`${BASE_URL_LOCALHOST_V1}tickets`)
+    axios.get(`${BASE_URL_LOCALHOST_V1}tickets`)
     .then(response => {
       setData(response.data)
     })
