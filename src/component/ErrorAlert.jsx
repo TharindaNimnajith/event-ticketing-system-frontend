@@ -6,9 +6,15 @@ const ErrorAlert = ({error}) => (
       <p><strong>Error Message:</strong> {error.message}</p>
       {
         error.errors && Array.isArray(error.errors) && error.errors.length > 0 ? (
-            error.errors.map((err, index) => (
-                <p key={`${err}-${index}`}>{err}</p>
-            ))
+            <>
+              <br/>
+              <p><strong>Errors:</strong></p>
+              {
+                error.errors.map((error, index) => (
+                    <p key={`${error}-${index}`}>{error}</p>
+                ))
+              }
+            </>
         ) : null
       }
     </div>

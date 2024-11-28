@@ -7,10 +7,11 @@ import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Customers = () => {
-  const [customers, setCustomers] = useState([])
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [dataAdd, setDataAdd] = useState(null)
+  const [errorAdd, setErrorAdd] = useState(null)
 
   useEffect(() => {
     axios
@@ -24,14 +25,24 @@ const Customers = () => {
     .finally(() => {
       setLoading(false)
     })
-  }, [])
+  }, [dataAdd])
 
-  const addCustomer = e => {
-    e.preventDefault()
-    const id = e.target.customerId.value
-    // Call API here, for now assume success
-    setCustomers([...customers, {id}])
-    e.target.reset()
+  const addCustomer = event => {
+    event.preventDefault()
+    setErrorAdd(null)
+    axios
+    .post(`${BASE_URL_LOCALHOST_V1}customers`, {
+      id: event.target.customerId.value
+    })
+    .then(response => {
+      setDataAdd(response.data)
+    })
+    .catch(error => {
+      setErrorAdd(error.response.data)
+    })
+    .finally(() => {
+      event.target.reset()
+    })
   }
 
   return (
@@ -39,10 +50,13 @@ const Customers = () => {
         <Header header="Customers"/>
         <form onSubmit={addCustomer} className="mb-4">
           <input type="text" name="customerId" placeholder="Customer Id" className="border p-2 mr-2"/>
-          <button type="submit" className="rounded bg-blue-500 text-white px-4 py-2">
-            Add
+          <button type="submit" className="rounded bg-blue-700 text-white px-4 py-2">
+            Add Customer
           </button>
         </form>
+        {
+            errorAdd && <ErrorAlert error={errorAdd}/>
+        }
         {
           loading ? (
               <Loading/>

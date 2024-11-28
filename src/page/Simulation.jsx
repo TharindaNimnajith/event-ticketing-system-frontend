@@ -27,11 +27,11 @@ const Simulation = () => {
           ) : null
         }
         <div className="flex gap-4 mb-4">
-          <button onClick={startSimulation} className="rounded bg-green-500 text-white px-4 py-2">
-            Start
+          <button onClick={startSimulation} className="rounded bg-green-700 text-white px-4 py-2">
+            Start Simulation
           </button>
-          <button onClick={stopSimulation} className="rounded bg-red-500 text-white px-4 py-2">
-            Stop
+          <button onClick={stopSimulation} className="rounded bg-red-700 text-white px-4 py-2">
+            Stop Simulation
           </button>
         </div>
       </div>

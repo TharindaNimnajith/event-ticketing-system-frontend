@@ -7,10 +7,11 @@ import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Vendors = () => {
-  const [vendors, setVendors] = useState([])
   const [data, setData] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [dataAdd, setDataAdd] = useState(null)
+  const [errorAdd, setErrorAdd] = useState(null)
 
   useEffect(() => {
     axios
@@ -24,15 +25,25 @@ const Vendors = () => {
     .finally(() => {
       setLoading(false)
     })
-  }, [])
+  }, [dataAdd])
 
-  const addVendor = e => {
-    e.preventDefault()
-    const id = e.target.vendorId.value
-    const ticketsPerRelease = e.target.ticketsPerRelease.value
-    // Call API here, for now assume success
-    setVendors([...vendors, {id}])
-    e.target.reset()
+  const addVendor = event => {
+    event.preventDefault()
+    setErrorAdd(null)
+    axios
+    .post(`${BASE_URL_LOCALHOST_V1}vendors`, {
+      id: event.target.vendorId.value,
+      tickets_per_release: event.target.ticketsPerRelease.value
+    })
+    .then(response => {
+      setDataAdd(response.data)
+    })
+    .catch(error => {
+      setErrorAdd(error.response.data)
+    })
+    .finally(() => {
+      event.target.reset()
+    })
   }
 
   return (
@@ -41,10 +52,13 @@ const Vendors = () => {
         <form onSubmit={addVendor} className="mb-4">
           <input type="text" name="vendorId" placeholder="Vendor Id" className="border p-2 mr-2"/>
           <input type="text" name="ticketsPerRelease" placeholder="Tickets per Release" className="border p-2 mr-2"/>
-          <button type="submit" className="rounded bg-blue-500 text-white px-4 py-2">
-            Add
+          <button type="submit" className="rounded bg-blue-700 text-white px-4 py-2">
+            Add Vendor
           </button>
         </form>
+        {
+            errorAdd && <ErrorAlert error={errorAdd}/>
+        }
         {
           loading ? (
               <Loading/>
