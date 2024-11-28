@@ -25,7 +25,6 @@ const Tickets = () => {
   return (
       <div>
         <h2 className="text-xl font-bold mb-4">Tickets</h2>
-
         {
           loading ? (
               <div className="text-center">Loading...</div>
