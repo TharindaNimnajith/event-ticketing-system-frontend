@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react'
 import axios from 'axios'
-import {BASE_URL_LOCALHOST_V1} from '../config/config.js'
+import {useEffect, useState} from 'react'
 import ErrorAlert from '../component/ErrorAlert'
+import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Tickets = () => {
   const [data, setData] = useState(null)
@@ -24,36 +24,36 @@ const Tickets = () => {
 
   return (
       <div>
-        <h2 className='text-xl font-bold mb-4'>Tickets</h2>
+        <h2 className="text-xl font-bold mb-4">Tickets</h2>
 
         {
           loading ? (
-              <div className='text-center'>Loading...</div>
+              <div className="text-center">Loading...</div>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : (
-              <table className='table-auto w-full'>
+              <table className="table-auto w-full">
                 <thead>
                   <tr>
-                    <th className='border px-4 py-2'>Ticket Id</th>
-                    <th className='border px-4 py-2'>Vendor Id</th>
-                    <th className='border px-4 py-2'>Customer Id</th>
-                    <th className='border px-4 py-2'>Ticket Status</th>
+                    <th className="border px-4 py-2">Ticket Id</th>
+                    <th className="border px-4 py-2">Vendor Id</th>
+                    <th className="border px-4 py-2">Customer Id</th>
+                    <th className="border px-4 py-2">Ticket Status</th>
                   </tr>
                 </thead>
                 <tbody>
                 {
                   data?.data?.length === 0 ? (
                       <tr>
-                        <td colSpan='4' className='text-center p-4'>No tickets available</td>
+                        <td colSpan="4" className="text-center p-4">No tickets available</td>
                       </tr>
                   ) : (
                       data?.data?.map(ticket => (
                           <tr key={ticket.id}>
-                            <td className='border px-4 py-2'>{ticket.id}</td>
-                            <td className='border px-4 py-2'>{ticket.vendor_id}</td>
-                            <td className='border px-4 py-2'>{ticket.customer_id != null ? ticket.customer_id : 'N/A'}</td>
-                            <td className='border px-4 py-2'>{ticket.status}</td>
+                            <td className="border px-4 py-2">{ticket.id}</td>
+                            <td className="border px-4 py-2">{ticket.vendor_id}</td>
+                            <td className="border px-4 py-2">{ticket.customer_id != null ? ticket.customer_id : 'N/A'}</td>
+                            <td className="border px-4 py-2">{ticket.status}</td>
                           </tr>
                       ))
                   )

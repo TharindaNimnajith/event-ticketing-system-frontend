@@ -1,10 +1,11 @@
 import {useState} from 'react'
 import Sidebar from './component/Sidebar'
+import {TAB_CONFIGURATIONS, TAB_CUSTOMERS, TAB_SIMULATION, TAB_TICKETS, TAB_VENDORS} from './config/config'
+import Configurations from './page/Configurations'
 import Customers from './page/Customers'
-import Vendors from './page/Vendors'
-import Tickets from './page/Tickets'
 import Simulation from './page/Simulation'
-import {TAB_CUSTOMERS, TAB_SIMULATION, TAB_TICKETS, TAB_VENDORS} from './config/config.js'
+import Tickets from './page/Tickets'
+import Vendors from './page/Vendors'
 
 const App = () => {
   const [currentTab, setCurrentTab] = useState(TAB_SIMULATION)
@@ -13,6 +14,8 @@ const App = () => {
     switch (currentTab) {
       case TAB_SIMULATION:
         return <Simulation/>
+      case TAB_CONFIGURATIONS:
+        return <Configurations/>
       case TAB_VENDORS:
         return <Vendors/>
       case TAB_CUSTOMERS:
@@ -25,9 +28,9 @@ const App = () => {
   }
 
   return (
-      <div className='flex'>
+      <div className="flex">
         <Sidebar setTab={setCurrentTab}/>
-        <div className='w-4/5 p-4'>
+        <div className="w-4/5 p-4">
           {
             renderContent()
           }
