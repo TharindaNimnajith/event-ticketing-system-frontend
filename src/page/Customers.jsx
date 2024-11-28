@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {useEffect, useState} from 'react'
+import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Customers = () => {
@@ -42,7 +44,7 @@ const Customers = () => {
         </form>
         {
           loading ? (
-              <div className="text-center">Loading...</div>
+              <Loading/>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : (
@@ -56,9 +58,7 @@ const Customers = () => {
                 <tbody>
                 {
                   data?.data?.length === 0 ? (
-                      <tr>
-                        <td colSpan="4" className="text-center p-4">No customers available</td>
-                      </tr>
+                      <EmptyResultSet message="No customers available"/>
                   ) : (
                       data?.data?.map(customer => (
                           <tr key={customer.id}>

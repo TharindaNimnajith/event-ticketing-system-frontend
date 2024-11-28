@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {useEffect, useState} from 'react'
+import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Tickets = () => {
@@ -27,7 +29,7 @@ const Tickets = () => {
         <h2 className="text-xl font-bold mb-4">Tickets</h2>
         {
           loading ? (
-              <div className="text-center">Loading...</div>
+              <Loading/>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : (
@@ -43,9 +45,7 @@ const Tickets = () => {
                 <tbody>
                 {
                   data?.data?.length === 0 ? (
-                      <tr>
-                        <td colSpan="4" className="text-center p-4">No tickets available</td>
-                      </tr>
+                      <EmptyResultSet message="No tickets available"/>
                   ) : (
                       data?.data?.map(ticket => (
                           <tr key={ticket.id}>

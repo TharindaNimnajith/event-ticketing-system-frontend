@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {useEffect, useState} from 'react'
 import ErrorAlert from '../component/ErrorAlert'
+import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Configurations = () => {
@@ -27,7 +28,7 @@ const Configurations = () => {
         <h2 className="text-xl font-bold mb-4">Ticketing Configurations</h2>
         {
           loading ? (
-              <div className="text-center">Loading...</div>
+              <Loading/>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : (

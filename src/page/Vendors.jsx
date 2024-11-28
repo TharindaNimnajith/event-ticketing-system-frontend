@@ -1,6 +1,8 @@
 import axios from 'axios'
 import {useEffect, useState} from 'react'
+import EmptyResultSet from '../component/EmptyResultSet'
 import ErrorAlert from '../component/ErrorAlert'
+import Loading from '../component/Loading'
 import {BASE_URL_LOCALHOST_V1} from '../config/config'
 
 const Vendors = () => {
@@ -44,7 +46,7 @@ const Vendors = () => {
         </form>
         {
           loading ? (
-              <div className="text-center">Loading...</div>
+              <Loading/>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : (
@@ -60,9 +62,7 @@ const Vendors = () => {
                 <tbody>
                 {
                   data?.data?.length === 0 ? (
-                      <tr>
-                        <td colSpan="4" className="text-center p-4">No vendors available</td>
-                      </tr>
+                      <EmptyResultSet message="No vendors available"/>
                   ) : (
                       data?.data?.map(vendor => (
                           <tr key={vendor.id}>

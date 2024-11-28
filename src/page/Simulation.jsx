@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import ErrorAlert from '../component/ErrorAlert'
+import Loading from '../component/Loading'
 
 const Simulation = () => {
   const [data, setData] = useState(null)
@@ -19,7 +20,7 @@ const Simulation = () => {
         <h2 className="text-xl font-bold mb-4">Simulation</h2>
         {
           loading ? (
-              <div className="text-center">Loading...</div>
+              <Loading/>
           ) : error ? (
               <ErrorAlert error={error}/>
           ) : null
