@@ -30,7 +30,7 @@ const App = () => {
   return (
       <div className="flex">
         <Sidebar setTab={setCurrentTab}/>
-        <div className="w-4/5 p-4">
+        <div className="pt-16 p-4">
           {
             renderContent()
           }
